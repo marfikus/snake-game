@@ -7,7 +7,13 @@ def print_map():
     border = "=" * len(map[0]) * 3
     print(border)
     for string in map:
-        print(string)
+        # print(string)
+        for cell in string:
+            if cell == 0:
+                print(" ", end="")
+            else:
+                print(cell, end="")
+        print()
     print(border)
 
 
