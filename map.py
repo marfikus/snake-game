@@ -1,4 +1,9 @@
 from cell import Cell
+# from snake_element import SnakeElement
+from snake_head import SnakeHead
+from snake_body import SnakeBody
+from eat import Eat
+from stone import Stone
 
 
 class Map:
