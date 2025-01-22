@@ -12,13 +12,16 @@ class Map:
         self.height = h
         self.map = [[Cell() for _ in range(self.width)] for _ in range(self.height)]
         self.snake = None
-        
-        
+
+
     def show(self):
-        border = "=" * len(self.map[0]) * 3
+        border = " " + "-=-" * len(self.map[0])
         print(border)
         for y in range(self.height):
+            print("|", end="")
+            num_line = " "
             for x in range(self.width):
+                num_line += f" {x} "
                 content = self.map[y][x].content
                 if content is None:
                     print("   ", end="")
@@ -30,8 +33,9 @@ class Map:
                     print(" h ", end="")
                 elif isinstance(content, SnakeBody):
                     print(" b ", end="")
-            print()
+            print("|", y)
         print(border)
+        print(num_line)
 
 
     def add_snake(self, s):
