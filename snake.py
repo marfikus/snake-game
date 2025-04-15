@@ -53,14 +53,14 @@ class Snake:
         for el in self.elements:
             if (new_y == el.y) and (new_x == el.x):
                 print("collapse!")
-                self.map_link.show()
+                # self.map_link.show()
                 return
 
         # наткнулись на еду)
         if isinstance(map[new_y][new_x].content, Eat):
             self._add_element(new_y, new_x)
             print("eat! new len:", len(self.elements))
-            self.map_link.show()
+            # self.map_link.show()
             return
         
         self.head.y = new_y
@@ -78,5 +78,5 @@ class Snake:
             prev_y = cur_y
             prev_x = cur_x
 
-        self.map_link.show()
+        # self.map_link.show()
 

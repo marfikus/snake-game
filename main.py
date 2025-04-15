@@ -4,7 +4,7 @@ from eat import Eat
 from stone import Stone
 
 
-def main():
+def start_console():
     map = Map()
     map.map[0][1].content = Eat()
     map.map[0][3].content = Eat()
@@ -30,9 +30,24 @@ def main():
             result = snake.move("up")
         elif com == "d":
             result = snake.move("down")
-        # map.show()
+        map.show()
         # if result == False:
             # break
+
+
+def start_gui():
+    pass
+
+
+def main():
+    cmd = input("Select version please (1 - console, 2 - gui): ")
+    # cmd = "2"
+    if cmd == "1":
+        start_console()
+    elif cmd == "2":
+        start_gui()
+    else:
+        print("Unknown command!")
 
 
 if __name__ == "__main__":
