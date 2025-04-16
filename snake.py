@@ -11,6 +11,7 @@ class Snake:
         self.map_link = None
         self.elements = []
         self.head = None
+        self.prev_dir = None
         self._add_element(x=0, y=0)
 
         
@@ -25,13 +26,20 @@ class Snake:
         self.head = self.elements[0]
         
         
-    def move(self, new_dir):
+    def move(self, new_dir=None):
         dirs = {
             "right": (0, 1),
             "down": (1, 0),
             "left": (0, -1),
             "up": (-1, 0),
         }
+
+        if new_dir is None:
+            if self.prev_dir is not None:
+                new_dir = self.prev_dir
+            else:
+                print("Select start moving direction please!")
+                return False
         
         print(new_dir)
         prev_y = self.head.y
@@ -52,7 +60,7 @@ class Snake:
         # проверка на столконовение с собой и противоход
         for el in self.elements:
             if (new_y == el.y) and (new_x == el.x):
-                print("collapse!")
+                print("Game over!")
                 # self.map_link.show()
                 return
 
@@ -61,7 +69,8 @@ class Snake:
             self._add_element(new_y, new_x)
             print("eat! new len:", len(self.elements))
             # self.map_link.show()
-            return
+            self.prev_dir = new_dir
+            return new_dir
         
         self.head.y = new_y
         self.head.x = new_x
@@ -78,5 +87,7 @@ class Snake:
             prev_y = cur_y
             prev_x = cur_x
 
+        self.prev_dir = new_dir
+        return new_dir
         # self.map_link.show()
 

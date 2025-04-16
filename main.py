@@ -30,9 +30,13 @@ def start_console():
             result = snake.move("up")
         elif com == "d":
             result = snake.move("down")
-        map.show()
-        # if result == False:
-            # break
+        else:
+            result = snake.move()
+
+        if result is not None:
+            map.show()
+        else:
+            return
 
 
 def start_gui():
