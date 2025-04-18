@@ -5,6 +5,8 @@ from snake_body import SnakeBody
 from eat import Eat
 from stone import Stone
 
+import random
+
 
 class Map:
     def __init__(self, w=10, h=10):
@@ -56,6 +58,15 @@ class Map:
             self.snake = None
             for el in s.elements:
                 self.map[el.y][el.x].content = None
+
+
+    def add_new_eat(self):
+        while True:
+            x = random.randint(0, self.width - 1)
+            y = random.randint(0, self.height - 1)
+            if self.map[y][x].content is None:
+                self.map[y][x].content = Eat()
+                break
                 
                 
     # def add_stone, eat... remove...

@@ -8,16 +8,9 @@ from snake_body import SnakeBody
 
 def start_console():
     map = Map()
-    map.map[0][1].content = Eat()
-    map.map[0][3].content = Eat()
-    map.map[2][7].content = Eat()
-    map.map[5][5].content = Eat()
-    map.map[7][1].content = Eat()
-    map.map[7][9].content = Eat()
-    map.map[9][6].content = Eat()
-
     snake = Snake("Snake1")
     map.add_snake(snake)
+    map.add_new_eat()
     map.show()
 
     while True:
@@ -48,17 +41,9 @@ def start_gui():
     MAP_HEIGHT = 10
 
     map = Map(MAP_WIDTH, MAP_HEIGHT)
-    map.map[0][1].content = Eat()
-    map.map[0][3].content = Eat()
-    map.map[2][7].content = Eat()
-    map.map[5][5].content = Eat()
-    map.map[7][1].content = Eat()
-    map.map[7][9].content = Eat()
-    map.map[9][6].content = Eat()
-
     snake = Snake("Snake1")
     map.add_snake(snake)
-
+    map.add_new_eat()
     map.show()
 
     BLOCK_SIZE = 20

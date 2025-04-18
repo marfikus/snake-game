@@ -69,6 +69,7 @@ class Snake:
             self._add_element(new_y, new_x)
             print("eat! new len:", len(self.elements))
             # self.map_link.show()
+            self.map_link.add_new_eat()
             self.prev_dir = new_dir
             return new_dir
         
