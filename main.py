@@ -10,6 +10,7 @@ def start_console():
     map = Map()
     snake = Snake("Snake1")
     map.add_snake(snake)
+    map.add_stone(nums=5, diff=2)
     map.add_new_eat()
     map.show()
 
@@ -43,6 +44,7 @@ def start_gui():
     map = Map(MAP_WIDTH, MAP_HEIGHT)
     snake = Snake("Snake1")
     map.add_snake(snake)
+    map.add_stone(nums=5, diff=2)
     map.add_new_eat()
     map.show()
 

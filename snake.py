@@ -57,9 +57,10 @@ class Snake:
         elif new_x == len(map[0]):
             new_x = 0
 
-        # проверка на столконовение с собой и противоход
+        # проверка на столкновение с собой, с камнем и противоход
         for el in self.elements:
-            if (new_y == el.y) and (new_x == el.x):
+            if ((new_y == el.y) and (new_x == el.x)) or \
+            (isinstance(map[new_y][new_x].content, Stone)):
                 print("Game over!")
                 # self.map_link.show()
                 return

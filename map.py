@@ -67,6 +67,36 @@ class Map:
             if self.map[y][x].content is None:
                 self.map[y][x].content = Eat()
                 break
+
+
+    def add_stone(self, nums=3, diff=2):
+        def check_coords(new_stone, stones, diff):
+            for added_stone in stones:
+                a = ((added_stone[0] - diff) <= new_stone[0] <= (added_stone[0] + diff)) 
+                b = ((added_stone[1] - diff) <= new_stone[1] <= (added_stone[1] + diff)) 
+                if a and b:
+                    return False
+            return True
+        
+        count = 0
+        stones = []
+        iteration = 0
+        ITERATIONS_LIMIT = 100
+        while count < nums:
+            y = random.randint(0, self.height - 1)
+            x = random.randint(0, self.width - 1)
+            if self.map[y][x].content is None:
+                # проверка по списку уже добавленных камней, чтобы координаты не были рядом
+                if check_coords((y, x), stones, diff):
+                    self.map[y][x].content = Stone()
+                    stones.append((y, x))
+                    count += 1
+                    iteration = 0
+                    continue
+                    
+            iteration += 1
+            if iteration == ITERATIONS_LIMIT:
+                print("very long time, stop process")
+                return
                 
-                
-    # def add_stone, eat... remove...
+
